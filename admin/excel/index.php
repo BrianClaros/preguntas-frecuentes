@@ -21,7 +21,34 @@ header("Location: ../index.php");
 </head>
 
 <body>
-<div class="jumbotron">
+<nav class="navbar navbar-inverse navbar-static-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span> 
+      </button>
+      <a class="navbar-brand" href="#">Administración</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href=".">Inicio</a></li>
+        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Carga<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="../carga/masiva">Masiva</a></li>
+                <li><a href="../carga/manual">Individual</a></li>
+              </ul></li> 
+        <li><a href="#">Solicitudes</a></li>
+        <li><a href="#">Modificaciones</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li id="logout"><a href="../php/logout.php">Salir</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="jumbotron" style="margin-top:-20px;">
       <div class="container">
         <h1>Subir preguntas</h1>
         <p>Este es un sistema automatizado para subir las preguntas frecuentes mediante un archivo excel.</p>

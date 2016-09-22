@@ -45,7 +45,7 @@ header("Location: excel/");
         <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" name="pass" required>
         <div class="checkbox">
         </div>
-        <button class="btn btn-lg btn-default btn-block" type="submit">Entrar</button><br>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button><br>
 	<a href="../" style="color:grey;">volver a la página</a>
       </form>
 
