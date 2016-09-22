@@ -1,3 +1,13 @@
+<?php
+session_start();
+if(isset($_SESSION['user'])){
+}
+else{
+header("Location: ../index.php");
+}
+?>
+
+
 <html lang="es">
 <head>
     <meta charset="utf-8">

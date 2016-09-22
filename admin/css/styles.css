@@ -1,0 +1,231 @@
+@font-face {
+    font-family: Helvetica;
+    src: url(../fonts/Helvetica.otf);
+}
+
+.navbar.center .navbar-inner {
+    text-align: center;
+}
+
+.navbar.center .navbar-inner .nav {
+    display:inline-block;
+    float: none;
+}
+
+
+.navbar-inverse {
+  
+  background-color: #294b70;
+  border-color: #294b70;
+}
+.navbar-inverse .navbar-brand {
+  color: #ffffff;
+}
+.navbar-inverse .navbar-brand:hover,
+.navbar-inverse .navbar-brand:focus {
+  color: #f2f2f2;
+}
+.navbar-inverse .navbar-text {
+  color: #ffffff;
+}
+.navbar-inverse .navbar-nav > li > a {
+  color: #ffffff;
+}
+.navbar-inverse .navbar-nav > li > a:hover,
+.navbar-inverse .navbar-nav > li > a:focus {
+  color: #f2f2f2;
+}
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .active > a:hover,
+.navbar-inverse .navbar-nav > .active > a:focus {
+  color: #f2f2f2;
+  background-color: #243950;
+}
+.navbar-inverse .navbar-nav > .open > a,
+.navbar-inverse .navbar-nav > .open > a:hover,
+.navbar-inverse .navbar-nav > .open > a:focus {
+  color: #f2f2f2;
+  background-color: #243950;
+}
+.navbar-inverse .navbar-toggle {
+  border-color: #243950;
+}
+.navbar-inverse .navbar-toggle:hover,
+.navbar-inverse .navbar-toggle:focus {
+  background-color: #243950;
+}
+.navbar-inverse .navbar-toggle .icon-bar {
+  background-color: #ffffff;
+}
+.navbar-inverse .navbar-collapse,
+.navbar-inverse .navbar-form {
+  border-color: #243950;
+}
+.navbar-inverse .navbar-link {
+  color: #ffffff;
+}
+.navbar-inverse .navbar-link:hover {
+  color: #f2f2f2;
+}
+
+@media (max-width: 767px) {
+
+  .navbar-inverse .navbar-nav .open .dropdown-menu > li > a {
+    color: #ffffff;
+  }
+  .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:hover,
+  .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: #f2f2f2;
+    background-color: #243950;
+  }
+  .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a,
+  .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a:hover,
+  .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a:focus {
+    color: #f2f2f2;
+    background-color: #243950;
+  }
+}
+
+.dropdown-menu{
+background-color: #243950;
+}
+.dropdown-menu li a{
+color:lightgrey;
+}
+.carousel-fade .carousel-inner .item {
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
+}
+.carousel-fade .carousel-inner .item,
+.carousel-fade .carousel-inner .active.left,
+.carousel-fade .carousel-inner .active.right {
+  opacity: 0;
+}
+.carousel-fade .carousel-inner .active,
+.carousel-fade .carousel-inner .next.left,
+.carousel-fade .carousel-inner .prev.right {
+  opacity: 1;
+}
+.carousel-fade .carousel-inner .next,
+.carousel-fade .carousel-inner .prev,
+.carousel-fade .carousel-inner .active.left,
+.carousel-fade .carousel-inner .active.right {
+  left: 0;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
+.carousel-fade .carousel-control {
+  z-index: 2;
+}
+html,
+body,
+.carousel,
+.carousel-inner,
+.carousel-inner .item {
+  height: 100%;
+}
+
+
+
+@media (min-width: 726px){
+.icono{
+margin:25px;margin-left:100px;
+}
+
+.centrar{
+	margin-left:25%;
+}
+
+  .altocar{
+margin:auto;
+height:400px;
+max-width:800px;
+}
+.imagen{
+text-align:center;
+}
+
+.ipcva{
+margin-top:30px;
+margin-bottom:30px;
+}
+.mostrar{
+display:none;
+}
+
+.ocultar{
+display:inline;
+}
+
+.contenido{
+margin-top:-30px;
+margin-bottom:30px;
+}
+}
+@media (max-width: 726px){
+  .altocar{
+max-width:800px;
+height:300px;
+margin:auto;
+margin-top:-20px;
+}
+.imagen{
+text-align:center;
+}
+.ipcva{
+margin-top:-10px;
+margin-bottom:-10px;
+}
+
+.mostrar{
+display:inline;
+}
+
+.ocultar{
+display:none;
+}
+
+.contenido{
+margin-top:-30px;
+}
+
+}
+
+
+.cartxt{
+position:absolute;
+bottom:0px;
+background:white;
+width:100%;
+padding-left:10px;
+padding-right:10px;
+}
+
+.helvetica1{
+font-family:Helvetica, sans-serif;
+font-size:28px;
+font-weight: 300;
+line-height: 1.4;
+}
+
+.helvetica2{
+font-family:Helvetica, sans-serif;
+font-size:20px;
+  font-weight: 300;
+  line-height: 1.4;
+}
+
+.helvetica3{
+font-family:Helvetica, sans-serif;
+font-size:16px;
+  font-weight: 300;
+  line-height: 1.4;
+}
+
+.dropdown-menu li a{
+font-family:sans-serif;
+font-weight: 300;
+}
+
+
+
