@@ -87,7 +87,7 @@ width:98%;
 
 <div  ng-show="!(preguntas| filterBy:search.titulo).length" style="display:none;" id="nohay">
 <h3 class="alert alert-danger" role="alert">No hay preguntas relacionadas a <span class="tag ng-binding" style="color: black;">{{search.titulo}}</span>!</h3>
-<p class="alert alert-success lead" style="font-size:15px;">Si desea una respuesta, solicitela <br><input type="text" id="solicitar"><br>Dejanos tu mail y serás notificado al responderse<br><input type="text" id="mail" placeholder="correo electronico"><br><br><button class="btn btn-success" >Solicitar</button></p>
+<p class="alert alert-success lead" style="font-size:15px;">Si desea una respuesta, solicitela <br><input type="text" id="solicitar"><br>Dejanos tu mail y serás notificado al responderse<br><input type="mail" id="mail" placeholder="correo electronico"><br><br><span class="btn btn-success" onclick="agregarsoli()" >Solicitar</span></p>
 </div>	
 <!-- ng-show="search.titulo" -->
 <div  class="panel panel-default" ng-repeat="pregunta in preguntas | filterBy:search.titulo | limitTo: 10" style="margin-top:-3px;">
@@ -95,7 +95,7 @@ width:98%;
 
 <div class="panel-heading titulo" data-toggle="collapse"  id="{{pregunta.id}}" data-parent="#accordion"  onclick="responder(this)" href="#collapse{{pregunta.id}}" style="cursor:pointer;">
       <h4 class="panel-title">
-        {{pregunta.pregunta}}
+      {{pregunta.pregunta}}
       </h4>
     </div>
     <div id="collapse{{pregunta.id}}" class="panel-collapse collapse">
@@ -104,17 +104,13 @@ width:98%;
 </div>
 </div>
 </div>
-<div class="col-md-3" >
-
+<div class="col-md-3">
 <div class="panel panel-info">
 	<div class="panel-heading">
-		<h3 class="panel-title">Búsquedas recientes</h3></div><div class="panel-body"></div>
-
-    </div>
+	<h3 class="panel-title">Búsquedas recientes</h3></div><div class="panel-body"></div>
 </div>
-
 </div>
-
+</div>
 </div>
 <script>
 function responder(elemento){
@@ -161,11 +157,27 @@ $.ajax({
 
 
 function visitareciente(elemento){
-$('input').val($(elemento).html());
-$('input').trigger('input');
+$('#busca').val($(elemento).html());
+$('#busca').trigger('input');
 $("button").click();
 var recent= $(elemento).attr('id').replace('reciente','');
 $("#"+recent).click();
+}
+
+function agregarsoli(){
+var datos={
+'solicitud':$('#solicitar').val(),
+'correo':$('#mail').val()
+};
+$.ajax({
+	url:'php/agregar.php',
+	data:datos,
+	type:'post',
+	success:function(res){
+	alert(res);
+	}
+
+});
 }
 
 </script>
