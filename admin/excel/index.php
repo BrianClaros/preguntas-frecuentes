@@ -18,6 +18,13 @@ header("Location: ../index.php");
     <script src="js/jquery.js" type="text/javascript"></script>
     <script src="../js/bootstrap.min.js" type="text/javascript"></script>
     <link rel="stylesheet" href="../css/bootstrap.min.css"/>
+	    <style>
+#solis{
+	border-radius:30px;
+	padding-left:3px;
+	padding-right:3px;
+}
+	</style>
 </head>
 
 <body>
@@ -39,7 +46,7 @@ header("Location: ../index.php");
                 <li><a href="../carga/masiva">Masiva</a></li>
                 <li><a href="../carga/manual">Individual</a></li>
               </ul></li> 
-        <li><a href="#">Solicitudes</a></li>
+        <li><a href="#">Solicitudes <span id="solis" class="btn-danger"></span></a></li>
         <li><a href="#">Modificaciones</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -83,6 +90,16 @@ header("Location: ../index.php");
 <img src="img/spinner.gif" class="cargando" style="top:0px;left:0px;width:100%;height:100%;position:fixed;opacity:0.3;">
 </body>
 <script>
+var respuesta;
+$.ajax({
+	url:'php/numero-solicitudes.php',
+	type:'post',
+	success:function (res){
+	$("#solis").html(res);
+	}
+	
+});
+
 $(".cargando").hide();
 function to_json(workbook) {
 	var result = {};
