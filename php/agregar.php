@@ -1,5 +1,5 @@
 <?php
-$mysqli = new mysqli("localhost", "root", "p", "sad");
+$mysqli = new mysqli("localhost", "hu000202_ian", "Puchetti2016", "hu000202_bdsadq");
 $pregunta=$_POST['solicitud'];
 $correo=$_POST['correo'];
 if($result = $mysqli->query("SELECT * FROM solicitudes WHERE pregunta='$pregunta' ")) {
