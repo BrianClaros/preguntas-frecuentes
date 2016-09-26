@@ -1,6 +1,6 @@
 <?php
 $id = $_POST['id'];
-$conn = new mysqli("localhost", "root", "p", "sad");
+$mysqli = new mysqli("localhost", "hu000202_ian", "Puchetti2016", "hu000202_bdsadq");
 
 $consulta = $conn->query("SELECT visitas FROM preguntas WHERE id='$id'");
 $visitas=0;
