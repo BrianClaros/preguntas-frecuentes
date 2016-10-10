@@ -51,13 +51,13 @@ header("Location: ../index.php");
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="../../index.php">Inicio</a></li>
-        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Carga<span class="caret"></span></a>
+        <li ><a href="../../index.php">Inicio</a></li>
+        <li class="dropdown" class="active"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" >Carga<span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><a href="#">Masiva</a></li>
-                <li><a href="#">Individual</a></li>
+                <li class="active"><a href="#" >Individual</a></li>
               </ul></li> 
-        <li><a href="#">Solicitudes <span id="solis" class="btn-danger"></span></a></li>
+        <li><a href="../../solicitudes/index.php">Solicitudes <span id="solis" class="btn-danger"></span></a></li>
         <li><a href="#">Modificaciones</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -76,7 +76,7 @@ header("Location: ../index.php");
   </div>
   <div class="form-group">
     <label for="respuesta">Respuesta</label>
-    <input class="form-control" type="text" name="respuesta" id="respuesta">
+    <textarea class="form-control" rows="4" cols="50" name="respuesta" id="respuesta"></textarea>
   </div>
   <button type="submit" class="btn btn-danger">Enviar</button>
   </form>

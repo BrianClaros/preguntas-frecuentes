@@ -1,7 +1,8 @@
 <?php
 $conn = new mysqli("localhost", "hu000202_claros", "Claros2016", "hu000202_bdsadq");
 $pregunta=$_POST['pregunta'];
-$respuesta=$_POST['respuesta'];
+$res=$_POST['respuesta'];
+$respuesta=nl2br($res);
 
 $preguntar= $conn->query("SELECT pregunta FROM preguntas WHERE pregunta='$pregunta'");
 $rows = $preguntar->num_rows;
@@ -14,4 +15,7 @@ $insert= $conn->query("INSERT INTO preguntas VALUES(NULL, '¿$pregunta?', '$resp
 
 if ($insert == true) {
 	header("Location: ../../../index.php?print=true");
+}
+if ($insert == false) {
+	header("Location: ../../../index.php?print=false");
 }
