@@ -92,7 +92,8 @@ $('#row'+id).append("</br></br><div id=\"responder"+id+"\" class='col-md-9 col-x
 
 
 function responder(id){
-  if($('#respuesta').length > 10){
+
+  if($('#respuesta').val().length > 10){
     var datos = {'id':id,'pregunta' : $('#preguntas'+id).html() , 'respuesta' : $('#respuesta').val() };
     $.ajax({
       url:'php/responder.php',
@@ -105,6 +106,7 @@ function responder(id){
       }
     });
   }else{
+    alert('Desarrolle mejor su respuesta');
     obtener();
   }
 }
