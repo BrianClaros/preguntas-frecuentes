@@ -1,15 +1,23 @@
-<!Doctype html>
+<?php
+session_start();
+if(isset($_SESSION['user'])){
+}
+else{
+header("Location: ../index.php");
+}
+?>
+
 <html lang="es">
 <head>
 <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SAD - Preguntas frecuentes</title>
-<link rel="stylesheet" href="css/bootstrap.min.css"/>
-<script type="text/javascript" src="js/jquery.min.js"></script>
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
-<script src="js/angular.min.js"></script>
-<script src="js/tildes.js"></script>
+<link rel="stylesheet" href="../../../css/bootstrap.min.css"/>
+<script type="text/javascript" src="../../../js/jquery.min.js"></script>
+<script type="text/javascript" src="../../../js/bootstrap.min.js"></script>
+<script src="../../../js/angular.min.js"></script>
+<script src="../../../js/tildes.js"></script>
 <script>
 
 
@@ -67,17 +75,41 @@ width:98%;
 }
 }
 </style>
+
+
 </head>
 <body>
 
 
 
 <div ng-app="filter" ng-controller="MainController">
+
 	<nav class="navbar navbar-inverse" style="border-radius:0px;width:100%;">
-		<a class="navbar-brand" href="#">Preguntas frecuentes</a>	
-    <ul class="nav navbar-nav">
-      <li class="active" onclick="$('#busca').val('')" ng-click="search.titulo = ''"><a href="#">Inicio</a></li>
-    </ul>      
+	 <div class="container-fluid">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span> 
+      </button>
+      <a class="navbar-brand" href="#">Administración</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href=".">Inicio</a></li>
+        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Carga<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="../carga/masiva">Masiva</a></li>
+                <li><a href="../carga/manual">Individual</a></li>
+              </ul></li> 
+        <li><a href="../solicitudes/index.php">Solicitudes <span id="solis" class="btn-danger"></span></a></li>
+        <li><a href=".">Modificaciones</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li id="logout"><a href="../../php/logout.php">Salir</a></li>
+      </ul>
+    </div>
+  </div>
 		<div class="input-group buscador" style="margin:5px;max-width:500px;">
     			<input type="text" style="background:rgba(100,100,100,0.8);color:white;" class="form-control"  placeholder="Buscar..." ng-model="userInput.titulo" id="busca" ng-model-onblur>
 			<span class="input-group-btn">
@@ -85,40 +117,27 @@ width:98%;
 			</span>
 		</div>
 	</nav>
-
+	
 
 
 
 <div class="container">
-    <div class="row">
 
-<div class="col-md-9" >
 <div id="accordion" class="panel-group">
 
-<div  ng-show="!(preguntas| filterBy:search.titulo).length" style="display:none;" id="nohay">
-<h3 class="alert alert-danger" role="alert">No hay preguntas relacionadas a <span class="tag ng-binding" style="color: black;">{{search.titulo}}</span>! <button class="btn btn-danger" style="float:right;" ng-click="search.titulo = null" onclick="$('#busca').val('')">Volver</button></h3>
-
-<p class="alert alert-success lead" style="font-size:15px;">Si desea una respuesta, solicitela <br><input type="text" id="solicitar"><br>Dejanos tu mail y serás notificado al responderse<br><input type="mail" id="mail" placeholder="correo electronico"><br><br><span class="btn btn-success" onclick="agregarsoli()" >Solicitar</span></p>
-</div>	
 <!-- ng-show="search.titulo" -->
 <div  class="panel panel-default" ng-repeat="pregunta in preguntas | filterBy:search.titulo | limitTo: 10" style="margin-top:-3px;">
 
 
 <div class="panel-heading titulo" data-toggle="collapse"  id="{{pregunta.id}}" data-parent="#accordion"  onclick="responder(this)" href="#collapse{{pregunta.id}}" style="cursor:pointer;">
-      <h4 class="panel-title">
-      {{pregunta.pregunta}}
-      </h4>
+      <div class="panel-title lead" ><span id="pregunta{{pregunta.id}}">
+      {{pregunta.pregunta}} </span><button class="btn btn-warning" id="modificar{{pregunta.id}}" onclick="modificar(this)">Modificar</button>  <button class="btn btn-danger" id="eliminar{{pregunta.id}}" onclick="eliminar(this)">Eliminar</button>
+      </div>
     </div>
     <div id="collapse{{pregunta.id}}" class="panel-collapse collapse">
       <div class="panel-body respuestas" id="respuesta{{pregunta.id}}"></div>
     </div>
 </div>
-</div>
-</div>
-<div class="col-md-3">
-<div class="panel panel-info">
-	<div class="panel-heading">
-	<h3 class="panel-title">Búsquedas recientes</h3></div><div class="panel-body"></div>
 </div>
 </div>
 </div>
@@ -192,6 +211,16 @@ $.ajax({
 	}
 
 });
+}
+
+function modificar(elemento){
+			var id_elemento= $(elemento).attr('id');
+			var id_pregunta= id_elemento.replace("modificar","");
+			abrirVentana('modificar/?id='+id_pregunta+"&pregunta="+$("#pregunta"+id_pregunta).html()+"&respuesta="+$("#respuesta"+id_pregunta).html());
+}
+
+function abrirVentana(url) {
+    window.open(url, "nuevo", "directories=no, location=no, menubar=no, scrollbars=yes, statusbar=no, tittlebar=no, width=600, height=400");
 }
 </script>
 </body>

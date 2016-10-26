@@ -5,6 +5,13 @@ if(isset($_SESSION['user'])){
 else{
 header("Location: ../index.php");
 }
+
+if($_GET["print"] == "true"){
+  echo '<script language="javascript">alert("El registro se inserto correctamente.");</script>';
+}
+if($_GET["print"] == "false"){
+  echo '<script language="javascript">alert("Ya existe un registro identico, si desea modificarlo dirijase a la seccion de Modificaciones");</script>';
+}
 ?>
 
 
@@ -43,11 +50,11 @@ header("Location: ../index.php");
         <li class="active"><a href=".">Inicio</a></li>
         <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Carga<span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="../carga/masiva">Masiva</a></li>
-                <li><a href="../carga/manual">Individual</a></li>
+                <li><a href="carga/masiva">Masiva</a></li>
+                <li><a href="carga/manual">Individual</a></li>
               </ul></li> 
-        <li><a href="#">Solicitudes <span id="solis" class="btn-danger"></span></a></li>
-        <li><a href="#">Modificaciones</a></li>
+        <li><a href="solicitudes/index.php">Solicitudes <span id="solis" class="btn-danger"></span></a></li>
+        <li><a href="modificaciones/index.php">Modificaciones</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li id="logout"><a href="../php/logout.php">Salir</a></li>
