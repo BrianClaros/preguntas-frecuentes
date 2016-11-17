@@ -200,7 +200,7 @@ function modificar(elemento){
 
 function eliminar(elemento){
 			var id_elemento= $(elemento).attr('id');
-			var id_pregunta= id_elemento.replace("modificar","");
+			var id_pregunta= id_elemento.replace("eliminar","");
 			$.ajax({
 						url:'php/eliminar.php',
 						type:'post',
