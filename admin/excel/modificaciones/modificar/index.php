@@ -82,7 +82,7 @@ $("#modificar").click(function (){
 		data: datos,
 		success: function (res){
 		alert(res);
-		window.location.href = '.';
+		window.close();
 		}
 	});
 	
