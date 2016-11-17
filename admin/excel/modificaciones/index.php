@@ -131,12 +131,15 @@ width:98%;
 
 <div class="panel-heading titulo" data-toggle="collapse"  id="{{pregunta.id}}" data-parent="#accordion"  onclick="responder(this)" href="#collapse{{pregunta.id}}" style="cursor:pointer;">
       <div class="panel-title lead" ><span id="pregunta{{pregunta.id}}">
-      {{pregunta.pregunta}} </span><button class="btn btn-warning" id="modificar{{pregunta.id}}" onclick="modificar(this)">Modificar</button>  <button class="btn btn-danger" id="eliminar{{pregunta.id}}" onclick="eliminar(this)">Eliminar</button>
+      {{pregunta.pregunta}} </span>
       </div>
     </div>
     <div id="collapse{{pregunta.id}}" class="panel-collapse collapse">
       <div class="panel-body respuestas" id="respuesta{{pregunta.id}}"></div>
-    </div>
+      <div style="text-align:center"> 
+      <button class="btn btn-warning" id="modificar{{pregunta.id}}" onclick="modificar(this)">Modificar</button> 
+      <button class="btn btn-danger" id="eliminar{{pregunta.id}}" onclick="eliminar(this)">Eliminar</button></div><br><br>
+  	  </div>
 </div>
 </div>
 </div>
@@ -189,34 +192,21 @@ $.ajax({
 });
 
 
-function visitareciente(elemento){
-$('#busca').val($(elemento).html());
-$('#busca').trigger('input');
-$("#soli").click();
-var recent= $(elemento).attr('id').replace('reciente','');
-$("#"+recent).click();
-}
-
-function agregarsoli(){
-var datos={
-'solicitud':$('#solicitar').val(),
-'correo':$('#mail').val()
-};
-$.ajax({
-	url:'php/agregar.php',
-	data:datos,
-	type:'post',
-	success:function(res){
-	alert(res);
-	}
-
-});
-}
-
 function modificar(elemento){
 			var id_elemento= $(elemento).attr('id');
 			var id_pregunta= id_elemento.replace("modificar","");
-			abrirVentana('modificar/?id='+id_pregunta+"&pregunta="+$("#pregunta"+id_pregunta).html()+"&respuesta="+$("#respuesta"+id_pregunta).html());
+			abrirVentana('modificar/?id='+id_pregunta);
+}
+
+function eliminar(elemento){
+			var id_elemento= $(elemento).attr('id');
+			var id_pregunta= id_elemento.replace("modificar","");
+			$.ajax({
+						url:'php/eliminar.php',
+						type:'post',
+						data: {id: id_pregunta},
+						success: function (res){alert(res);location.reload();}
+			});
 }
 
 function abrirVentana(url) {

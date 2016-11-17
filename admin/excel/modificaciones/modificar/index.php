@@ -53,8 +53,21 @@ document.location.search.replace(/\??(?:([^=]+)=([^&]*)&?)/g, function () {
     </div>
   </body>
 <script>
-$("#pregunta").val($_GET["pregunta"]);
-$("#respuesta").val($_GET["respuesta"]);
+$(function (){
+$.ajax({
+			url:'php/select.php',
+			data: {id: $_GET["id"]},
+			type:'post',
+			success: function (res){
+						res=JSON.parse(res);
+						for(var i in res){
+											$("#pregunta").val(res[i].pregunta);
+											$("#respuesta").val(res[i].respuesta);
+						}
+			}
+});
+});
+
 
 $("#modificar").click(function (){
 	

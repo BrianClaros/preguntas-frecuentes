@@ -1,7 +1,7 @@
 <?php
 $id = $_POST['id'];
 $conn = new mysqli("localhost", "hu000202_claros", "Claros2016", "hu000202_bdsadq");
-$result = $conn->query("DELETE FROM solicitudes WHERE id='$id'");
+$result = $conn->query("DELETE FROM preguntas WHERE id='$id' LIMIT 1");
 if ($result) {
 	echo "Se elimino correctamente.";
 }else{
