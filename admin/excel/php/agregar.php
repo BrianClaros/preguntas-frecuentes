@@ -1,5 +1,5 @@
 <?php
-$mysqli = new mysqli("localhost", "hu000202_ian", "Puchetti2016", "hu000202_bdsadq");
+$mysqli = new mysqli("localhost", "hu000202_claros", "Claros2016", "hu000202_bdsadq");
 $sheet1=json_decode($_POST['sheet1']);
 $largo=count($sheet1);
 $i=0;
