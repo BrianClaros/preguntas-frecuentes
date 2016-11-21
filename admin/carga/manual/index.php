@@ -51,17 +51,17 @@ header("Location: ../index.php");
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li ><a href="../../index.php">Inicio</a></li>
-        <li class="dropdown" class="active"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" >Carga<span class="caret"></span></a>
+        <li ><a href="../../inicio">Inicio</a></li>
+        <li class="dropdown active"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" >Carga<span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="#">Masiva</a></li>
+                <li><a href="../masiva">Masiva</a></li>
                 <li class="active"><a href="#" >Individual</a></li>
               </ul></li> 
         <li><a href="../../solicitudes/index.php">Solicitudes <span id="solis" class="btn-danger"></span></a></li>
-        <li><a href="#">Modificaciones</a></li>
+        <li><a href="../../modificaciones">Modificaciones</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li id="logout"><a href="../../../php/logout.php">Salir</a></li>
+        <li id="logout"><a href="../../php/logout.php">Salir</a></li>
       </ul>
     </div>
   </div>

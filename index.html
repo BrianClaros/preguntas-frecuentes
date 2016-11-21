@@ -76,12 +76,13 @@ width:98%;
 	<nav class="navbar navbar-inverse" style="border-radius:0px;width:100%;">
 		<a class="navbar-brand" href="#">Preguntas frecuentes</a>	
     <ul class="nav navbar-nav">
-      <li class="active" onclick="$('#busca').val('')" ng-click="search.titulo = ''"><a href="#">Inicio</a></li>
+
     </ul>      
 		<div class="input-group buscador" style="margin:5px;max-width:500px;">
     			<input type="text" style="background:rgba(100,100,100,0.8);color:white;" class="form-control"  placeholder="Buscar..." ng-model="userInput.titulo" id="busca" ng-model-onblur>
 			<span class="input-group-btn">
 				<button id="soli" class="btn btn-secondary" type="button" ng-click="applySearch()" onclick="$('#solicitar').val($('#busca').val())">Buscar</button>
+								<button onclick="$('#busca').val('')" ng-click="search.titulo = ''" class="btn btn-secondary">Borrar</button>
 			</span>
 		</div>
 	</nav>

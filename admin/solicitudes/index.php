@@ -14,8 +14,8 @@ header("Location: ../index.php");
     <title>SAD - Subir preguntas</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="../../js/jquery.min.js" type="text/javascript"></script>
-    <script src="../../js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="../js/jquery.min.js" type="text/javascript"></script>
+    <script src="../js/bootstrap.min.js" type="text/javascript"></script>
     <link rel="stylesheet" href="../../css/bootstrap.min.css"/>
 	    <style>
       * {
@@ -130,17 +130,17 @@ function responder(id){
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li ><a href="../index.php">Inicio</a></li>
+        <li ><a href="../inicio">Inicio</a></li>
         <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Carga<span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="../carga/masiva/index.php">Masiva</a></li>
-                <li><a href="../carga/manual/index.php">Individual</a></li>
+                <li><a href="../carga/masiva/">Masiva</a></li>
+                <li><a href="../carga/manual/">Individual</a></li>
               </ul></li> 
-        <li class="active"><a href="#" >Solicitudes <span id="solis" class="btn-danger"></span></a></li>
-        <li><a href="#">Modificaciones</a></li>
+        <li class="active"><a href="." >Solicitudes<span id="solis" class="btn-danger"></span></a></li>
+        <li><a href="../modificaciones">Modificaciones</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li id="logout"><a href="../../php/logout.php">Salir</a></li>
+        <li id="logout"><a href="../php/logout.php">Salir</a></li>
       </ul>
     </div>
   </div>

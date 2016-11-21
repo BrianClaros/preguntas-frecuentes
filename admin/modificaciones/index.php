@@ -13,11 +13,11 @@ header("Location: ../index.php");
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SAD - Preguntas frecuentes</title>
-<link rel="stylesheet" href="../../../css/bootstrap.min.css"/>
-<script type="text/javascript" src="../../../js/jquery.min.js"></script>
-<script type="text/javascript" src="../../../js/bootstrap.min.js"></script>
-<script src="../../../js/angular.min.js"></script>
-<script src="../../../js/tildes.js"></script>
+<link rel="stylesheet" href="../css/bootstrap.min.css"/>
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+<script src="../../js/angular.min.js"></script>
+<script src="../../js/tildes.js"></script>
 <script>
 
 
@@ -74,8 +74,26 @@ width:98%;
 width:98%;
 }
 }
-</style>
 
+#solis{
+	border-radius:30px;
+	padding-left:3px;
+	padding-right:3px;
+}
+</style>
+<script>
+function numsol(){
+  $.ajax({
+  url:'../php/numero-solicitudes.php',
+  type:'post',
+  success:function (res){
+  $("#solis").html(res);
+  }
+  
+  });
+}
+numsol();
+</script>
 
 </head>
 <body>
@@ -96,17 +114,17 @@ width:98%;
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href=".">Inicio</a></li>
+        <li><a href="../inicio">Inicio</a></li>
         <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Carga<span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><a href="../carga/masiva">Masiva</a></li>
                 <li><a href="../carga/manual">Individual</a></li>
               </ul></li> 
-        <li><a href="../solicitudes/index.php">Solicitudes <span id="solis" class="btn-danger"></span></a></li>
-        <li><a href=".">Modificaciones</a></li>
+        <li><a href="../solicitudes/">Solicitudes <span id="solis" class="btn-danger"></span></a></li>
+        <li class="active"><a href=".">Modificaciones</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li id="logout"><a href="../../php/logout.php">Salir</a></li>
+        <li id="logout"><a href="../php/logout.php">Salir</a></li>
       </ul>
     </div>
   </div>
