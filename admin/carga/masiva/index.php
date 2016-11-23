@@ -139,7 +139,7 @@ function handleFile(e) {
         type:'post',
         url:'php/agregar.php',
         success:function(res){
-          alert('Preguntas cargadas correctamente.');
+          alert(res);
           $(".cargando").hide();
         }
       });
