@@ -226,9 +226,17 @@ function eliminar(elemento){
 						success: function (res){alert(res);location.reload();}
 			});
 }
+var child, timer;
+function checkChild() {
+    if (child.closed) {
+        location.reload();  
+        clearInterval(timer);
+    }
+}
 
 function abrirVentana(url) {
-    window.open(url, "nuevo", "directories=no, location=no, menubar=no, scrollbars=yes, statusbar=no, tittlebar=no, width=600, height=400");
+   child = window.open(url, "modificar", "directories=no, location=no, menubar=no, scrollbars=yes, statusbar=no, tittlebar=no, width=600, height=400");
+    timer = setInterval(checkChild, 500);
 }
 </script>
 </body>

@@ -119,6 +119,7 @@ function to_json(workbook) {
 	return result;
 }
 var exporte, mostrar;
+
 function handleFile(e) {
   var files = e.target.files;
   var i,f;
@@ -130,7 +131,8 @@ function handleFile(e) {
       var data = e.target.result;
       var workbook = XLSX.read(data, {type: 'binary'});
       exporte= to_json(workbook);
-      mostrar={'sheet1' : JSON.stringify(exporte.Sheet1)};
+      mostrar={'sheet1' : JSON.stringify(exporte[workbook.Props.SheetNames[0]])};
+      //mostrar={'sheet1' : JSON.stringify(exporte.Sheet1)};
       //document.getElementById("mostrar").innerHTML= mostrar.sheet1;
       $.ajax({
         data:mostrar,
@@ -146,6 +148,7 @@ function handleFile(e) {
   }
   $("#archivo").val("");
 }
+
 document.getElementById('archivo').addEventListener('change', handleFile, false);
 </script>
 </html>

@@ -17,7 +17,7 @@ header("Location: ../");
 	<meta name="description" content="">
 	<meta name="author" content="">
 	<link rel="icon" href="../../../icon.png">
-	<title>Nucleo</title>
+	<title>Modificar</title>
 	<link rel="stylesheet" href="../../../css/bootstrap.min.css"/>
 	<link href="../../../css/signin.css" rel="stylesheet"/>
 	<script type="text/javascript" src="../../../js/jquery.min.js"></script>

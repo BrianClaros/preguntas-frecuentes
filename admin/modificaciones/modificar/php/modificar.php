@@ -1,6 +1,5 @@
 <?php
 $mysqli= new mysqli("localhost", "hu000202_claros", "Claros2016", "hu000202_bdsadq");
-$mysqli->set_charset("utf8");
 $id=$_POST['id'];
 $pregunta=$_POST["pregunta"];
 $respuesta=$_POST["respuesta"];

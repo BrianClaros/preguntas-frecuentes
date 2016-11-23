@@ -4,8 +4,8 @@ $sheet1=json_decode($_POST['sheet1']);
 $largo=count($sheet1);
 $i=0;
 while($i<$largo){
-$pregunta=$sheet1[$i]->pregunta;
-$respuesta=$sheet1[$i]->respuesta;
+$pregunta=addslashes($sheet1[$i]->pregunta);
+$respuesta=addslashes($sheet1[$i]->respuesta);
 if($result = $mysqli->query("SELECT * FROM preguntas WHERE pregunta='$pregunta' AND respuesta='$respuesta'")) {
 $rows = $result->num_rows;
 if($rows!=0){
