@@ -144,7 +144,7 @@ numsol();
 <div id="accordion" class="panel-group">
 
 <!-- ng-show="search.titulo" -->
-<div  class="panel panel-default" ng-repeat="pregunta in preguntas | filterBy:search.titulo | limitTo: 10" style="margin-top:-3px;">
+<div  class="panel panel-default" ng-repeat="pregunta in preguntas | filterBy:search.titulo " style="margin-top:-3px;">
 
 
 <div class="panel-heading titulo" data-toggle="collapse"  id="{{pregunta.id}}" data-parent="#accordion"  onclick="responder(this)" href="#collapse{{pregunta.id}}" style="cursor:pointer;">
